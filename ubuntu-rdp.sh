@@ -65,23 +65,23 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose
 sudo groupadd docker
 sudo usermod -aG docker $USER
-echo "root:$1" | sudo chpasswd
-echo "ubuntu:$1" | sudo chpasswd
+echo 'root:Adm1234#' | sudo chpasswd
+echo 'ubuntu:Adm1234#' | sudo chpasswd
 sleep 2
 
 # Add users
 sudo useradd -m -s /bin/bash junior 
-echo "junior:$2" | sudo chpasswd
+echo 'junior:Adm1234#' | sudo chpasswd
 sudo usermod -aG docker junior
 sudo usermod -aG sudo junior
 sudo su junior bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox'
 sudo useradd -m -s /bin/bash senior 
-echo "senior:$2" | sudo chpasswd
+echo 'senior:Adm1234#' | sudo chpasswd
 sudo usermod -aG docker senior
 sudo usermod -aG sudo senior
 sudo su senior bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox'
 sudo useradd -m -s /bin/bash test 
-echo "test:$2" | sudo chpasswd
+echo 'test:Adm1234#' | sudo chpasswd
 sudo usermod -aG docker test
 sudo usermod -aG sudo test
 sudo su test bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox'
