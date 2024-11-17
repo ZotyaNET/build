@@ -8,9 +8,12 @@ usage() {
   exit 1
 }
 
+# Skip the first argument as it's the script name in this context when invoked via `sh -c`
+shift
+
 # Extract parameters
 while [[ $@ -gt 0 ]]; do
-  case $0 in
+  case $1 in
     --hostname)
       HOSTNAME=$1
       shift 2
