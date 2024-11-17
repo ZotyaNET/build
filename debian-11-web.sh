@@ -8,7 +8,7 @@ usage() {
   exit 1
 }
 
-# Parse the arguments
+# Extract parameters
 while [[ $# -gt 0 ]]; do
   case $1 in
     --hostname)
