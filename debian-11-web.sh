@@ -10,14 +10,10 @@ usage() {
 
 # Extract parameters
 while [[ $@ -gt 0 ]]; do
-  case $1 in
+  case $0 in
     --hostname)
-      HOSTNAME=$2
+      HOSTNAME=$1
       shift 2
-      ;;
-    --)
-      shift
-      break
       ;;
     *)
       usage
