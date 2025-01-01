@@ -68,44 +68,47 @@ sudo usermod -aG docker $USER
 echo 'root:Adm1234#' | sudo chpasswd
 sleep 2
 
-# JetBrains Toolbox Setup
-wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.3.2.31487.tar.gz
-sudo tar -xzf jetbrains-toolbox-2.3.2.31487.tar.gz -C /opt
-sudo su ubuntu bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox'
-sleep 2
-
 # Add users
 sudo useradd -m -s /bin/bash junior 
 echo 'junior:Adm1234#' | sudo chpasswd
 sudo usermod -aG docker junior
 sudo usermod -aG sudo junior
-sudo su junior bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox && echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc'
+echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 sudo useradd -m -s /bin/bash senior 
 echo 'senior:Adm1234#' | sudo chpasswd
 sudo usermod -aG docker senior
 sudo usermod -aG sudo senior
-sudo su senior bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox && echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc'
+echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 sudo useradd -m -s /bin/bash test 
 echo 'test:Adm1234#' | sudo chpasswd
 sudo usermod -aG docker test
 sudo usermod -aG sudo test
-sudo su test bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox && echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc'
+echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 sudo useradd -m -s /bin/bash titan 
 echo 'titan:Adm1234#' | sudo chpasswd
 sudo usermod -aG docker titan
 sudo usermod -aG sudo titan
-sudo su titan bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox && echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc'
+echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 sudo useradd -m -s /bin/bash wren 
 echo 'wren:Adm1234#' | sudo chpasswd
 sudo usermod -aG docker wren
 sudo usermod -aG sudo wren
-sudo su wren bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox && echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc'
+echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 
 # VSCode
 sudo apt-get install software-properties-common apt-transport-https wget -y
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt-get install -y code
+sleep 2
+
+# JetBrains Toolbox Setup
+wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.3.2.31487.tar.gz
+sudo tar -xzf jetbrains-toolbox-2.3.2.31487.tar.gz -C /opt
+sudo bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox'
+sleep 2
+
+sudo snap install phpstorm --classic
 sleep 2
 
 # Allow ingress
