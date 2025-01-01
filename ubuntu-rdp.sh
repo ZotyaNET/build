@@ -24,7 +24,7 @@ sudo sysctl --system
 sleep 2
 
 # Modify xrdp settings
-sudo sed -i 's/^#tcp_send_buffer_bytes=32768/tcp_send_buffer_bytes=32768000/' /etc/xrdp/xrdp.ini
+sudo sed -i 's/^#tcp_send_buffer_bytes=32768/tcp_send_buffer_bytes=8388608/' /etc/xrdp/xrdp.ini
 sudo sed -i '1 a session required pam_env.so readenv=1 user_readenv=0' /etc/pam.d/xrdp-sesman
 sudo sed -i '4 i\export XDG_CURRENT_DESKTOP=ubuntu:GNOME' /etc/xrdp/startwm.sh
 sudo sed -i '4 i\export GNOME_SHELL_SESSION_MODE=ubuntu' /etc/xrdp/startwm.sh
@@ -66,7 +66,12 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 sudo groupadd docker
 sudo usermod -aG docker $USER
 echo 'root:Adm1234#' | sudo chpasswd
-echo 'ubuntu:Adm1234#' | sudo chpasswd
+sleep 2
+
+# JetBrains Toolbox Setup
+wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.3.2.31487.tar.gz
+sudo tar -xzf jetbrains-toolbox-2.3.2.31487.tar.gz -C /opt
+sudo su ubuntu bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox'
 sleep 2
 
 # Add users
@@ -74,23 +79,27 @@ sudo useradd -m -s /bin/bash junior
 echo 'junior:Adm1234#' | sudo chpasswd
 sudo usermod -aG docker junior
 sudo usermod -aG sudo junior
-sudo su junior bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox'
+sudo su junior bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox && echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc'
 sudo useradd -m -s /bin/bash senior 
 echo 'senior:Adm1234#' | sudo chpasswd
 sudo usermod -aG docker senior
 sudo usermod -aG sudo senior
-sudo su senior bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox'
+sudo su senior bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox && echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc'
 sudo useradd -m -s /bin/bash test 
 echo 'test:Adm1234#' | sudo chpasswd
 sudo usermod -aG docker test
 sudo usermod -aG sudo test
-sudo su test bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox'
-
-# JetBrains Toolbox Setup
-wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.3.2.31487.tar.gz
-sudo tar -xzf jetbrains-toolbox-2.3.2.31487.tar.gz -C /opt
-sudo su ubuntu bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox'
-sleep 2
+sudo su test bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox && echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc'
+sudo useradd -m -s /bin/bash titan 
+echo 'titan:Adm1234#' | sudo chpasswd
+sudo usermod -aG docker titan
+sudo usermod -aG sudo titan
+sudo su titan bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox && echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc'
+sudo useradd -m -s /bin/bash wren 
+echo 'wren:Adm1234#' | sudo chpasswd
+sudo usermod -aG docker wren
+sudo usermod -aG sudo wren
+sudo su wren bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox && echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc'
 
 # VSCode
 sudo apt-get install software-properties-common apt-transport-https wget -y
