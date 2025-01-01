@@ -18,8 +18,7 @@ gcloud compute instances create xrdp-spot \
     --zone=europe-west4-b \
     --machine-type=e2-standard-8 \
     --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default \
-    --metadata=enable-osconfig=TRUE,ssh-keys=zkey:ssh-rsa\ \
-AAAAB3NzaC1yc2EAAAADAQABAAABAQC7JU3RpWmUVVMPop1wVDuAsFko1h9sy4lKR8NfSfciLVr3KxIAJpTV9jIVIpQW0FX6iuEYVUiFZ5OIiGmPNuGsp7kqNaMk20llQLRP\+S7jnn3wA2fcXVtugb8oV9yL9WuxV9SLHjBwkhVF8tAvKJz37oTE2Mt/N4OMmr\+\+vzGavg3pSlEJO3lCLtGkc0vS0DOH5l2rl659iJWuKv\+AC\+a3RkIy87hiuFxJFUdzlchzBH0RnDPdYgl1ag4uv9mwGdNlTD1T3YrlYVfXoJPbphw/CHmncOrDDt1dsv6Y5d/QNXpXjEZ5vktNKmIitL7UsGapxSp5E9gU/k8Bj\+rkE5MB\ zkey \
+    --metadata=enable-osconfig=TRUE,ssh-keys=zkey:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7JU3RpWmUVVMPop1wVDuAsFko1h9sy4lKR8NfSfciLVr3KxIAJpTV9jIVIpQW0FX6iuEYVUiFZ5OIiGmPNuGsp7kqNaMk20llQLRP+S7jnn3wA2fcXVtugb8oV9yL9WuxV9SLHjBwkhVF8tAvKJz37oTE2Mt/N4OMmr++vzGavg3pSlEJO3lCLtGkc0vS0DOH5l2rl659iJWuKv+AC+a3RkIy87hiuFxJFUdzlchzBH0RnDPdYgl1ag4uv9mwGdNlTD1T3YrlYVfXoJPbphw/CHmncOrDDt1dsv6Y5d/QNXpXjEZ5vktNKmIitL7UsGapxSp5E9gU/k8Bj+rkE5MB zkey \
     --can-ip-forward \
     --no-restart-on-failure \
     --maintenance-policy=TERMINATE \
