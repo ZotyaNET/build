@@ -1,3 +1,7 @@
+gcloud compute addresses create eu \
+    --region=europe-west4 \
+    --project=civil-hologram-441810-s4 \
+&& \
 gcloud compute instances create xrdp-spot \
     --project=civil-hologram-441810-s4 \
     --zone=europe-west4-b \
