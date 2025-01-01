@@ -1,7 +1,18 @@
-gcloud compute addresses create eu \
+#!/bin/bash
+
+# Check if the static IP address 'eu' already exists
+if gcloud compute addresses describe eu \
     --region=europe-west4 \
-    --project=civil-hologram-441810-s4 \
-&& \
+    --project=civil-hologram-441810-s4 > /dev/null 2>&1; then
+  echo "Static IP address 'eu' already exists. Skipping creation."
+else
+  echo "Creating static IP address 'eu'..."
+  gcloud compute addresses create eu \
+      --region=europe-west4 \
+      --project=civil-hologram-441810-s4
+  echo "Static IP address 'eu' created successfully."
+fi
+
 gcloud compute instances create xrdp-spot \
     --project=civil-hologram-441810-s4 \
     --zone=europe-west4-b \
