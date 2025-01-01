@@ -24,6 +24,7 @@ sudo sysctl --system
 sleep 2
 
 # Modify xrdp settings
+sudo sed -i 's/^port=3389/port=3388/' /etc/xrdp/xrdp.ini
 sudo sed -i 's/^#tcp_send_buffer_bytes=32768/tcp_send_buffer_bytes=8388608/' /etc/xrdp/xrdp.ini
 sudo sed -i '1 a session required pam_env.so readenv=1 user_readenv=0' /etc/pam.d/xrdp-sesman
 sudo sed -i '4 i\export XDG_CURRENT_DESKTOP=ubuntu:GNOME' /etc/xrdp/startwm.sh
