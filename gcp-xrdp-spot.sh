@@ -13,22 +13,22 @@ else
   echo "Static IP address 'eu' created successfully."
 fi
 
-gcloud compute instances create xrdp-spot \
+gcloud compute instances create xrdp-spot-jammy-minimal-zoho \
     --project=civil-hologram-441810-s4 \
     --zone=europe-west4-b \
     --machine-type=e2-standard-8 \
     --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default \
-    --metadata=enable-osconfig=TRUE,ssh-keys=zkey:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7JU3RpWmUVVMPop1wVDuAsFko1h9sy4lKR8NfSfciLVr3KxIAJpTV9jIVIpQW0FX6iuEYVUiFZ5OIiGmPNuGsp7kqNaMk20llQLRP+S7jnn3wA2fcXVtugb8oV9yL9WuxV9SLHjBwkhVF8tAvKJz37oTE2Mt/N4OMmr++vzGavg3pSlEJO3lCLtGkc0vS0DOH5l2rl659iJWuKv+AC+a3RkIy87hiuFxJFUdzlchzBH0RnDPdYgl1ag4uv9mwGdNlTD1T3YrlYVfXoJPbphw/CHmncOrDDt1dsv6Y5d/QNXpXjEZ5vktNKmIitL7UsGapxSp5E9gU/k8Bj+rkE5MB zkey \
+    --metadata=enable-osconfig=TRUE \
     --can-ip-forward \
     --no-restart-on-failure \
     --maintenance-policy=TERMINATE \
     --provisioning-model=SPOT \
     --instance-termination-action=STOP \
-    --max-run-duration=28800s \
     --service-account=168809542545-compute@developer.gserviceaccount.com \
-    --scopes=https://www.googleapis.com/auth/cloud-platform \
-    --tags=all,http-server,https-server,lb-health-check \
-    --create-disk=auto-delete=yes,boot=yes,device-name=xrdp-spot,image=projects/ubuntu-os-cloud/global/images/ubuntu-minimal-2404-noble-amd64-v20241218a,mode=rw,size=32,type=pd-ssd \
+    --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/trace.append \
+    --enable-display-device \
+    --tags=lb-health-check \
+    --create-disk=auto-delete=yes,boot=yes,device-name=xrdp-spot-jammy-minimal-zoho,image=projects/ubuntu-os-cloud/global/images/ubuntu-minimal-2204-jammy-v20241218,mode=rw,size=20,type=pd-ssd \
     --no-shielded-secure-boot \
     --shielded-vtpm \
     --shielded-integrity-monitoring \
