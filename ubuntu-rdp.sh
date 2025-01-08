@@ -7,7 +7,7 @@ sleep 2
 sudo apt-get install mc git htop make rsync telnet whiptail -y
 sleep 2
 
-sudo apt-get install -y ubuntu-gnome-desktop gnome-software
+sudo apt-get install -y ubuntu-gnome-desktop gnome-software gnome-tweaks
 sleep 2
 
 sudo systemctl enable --now gdm3
