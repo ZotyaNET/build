@@ -5,6 +5,9 @@ urls=(
     "https://www.zoho.com/salesiq/desktop/linux/SalesIQ_2.0.9_amd64.deb"
     "https://downloads.zohocdn.com/notebooklinux-desktop/Notebook-3.2.0.deb"
     "https://d1ctjwn89mb7yf.cloudfront.net/agent/4.1.0/ZohoMeeting-x64.AppImage"
+    "https://downloads.zohocdn.com/chat-desktop/linux/cliq_1.7.4_amd64.deb"
+    "https://downloads.zohocdn.com/assist-desktop/zoho-assist-desktop-x64.AppImage"
+    "https://files-accl.zohopublic.com/public/zohowriter/download/linux"
 )
 
 # Directory to save the downloaded files
