@@ -22,3 +22,7 @@ for url in "${urls[@]}"; do
 done
 
 mv "$download_dir/linux" ZohoWriter.deb
+
+sudo dpkg -i ./zoho/*.deb
+chmod +x /zoho/ZohoMeeting-x64.AppImage
+chmod +x /zoho/zoho-assist-desktop-x64.AppImage
