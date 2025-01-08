@@ -20,3 +20,5 @@ mkdir -p "$download_dir"
 for url in "${urls[@]}"; do
     wget -P "$download_dir" "$url"
 done
+
+mv "$download_dir/linux" ZohoWriter.deb
