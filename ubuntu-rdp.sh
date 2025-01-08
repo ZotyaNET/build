@@ -4,7 +4,7 @@
 sudo apt-get update && sudo apt-get -y upgrade
 sleep 2
 
-sudo apt-get install mc git htop make rsync telnet whiptail -y
+sudo apt-get install mc git htop make rsync telnet dialog whiptail rtkit systemd-oom colord whoopsi geoclue -y
 sleep 2
 
 sudo apt-get install -y ubuntu-gnome-desktop gnome-software gnome-tweaks
