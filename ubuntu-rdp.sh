@@ -97,8 +97,6 @@ sudo usermod -aG sudo wren
 echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 
 sudo snap install phpstorm --classic
-sleep 2
-
 sudo snap install postman
 sudo snap install opera
 sudo snap install gimp
