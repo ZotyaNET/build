@@ -4,7 +4,7 @@
 sudo apt-get update && sudo apt-get -y upgrade
 sleep 2
 
-sudo apt-get install mc git htop make rsync telnet dialog whiptail rtkit systemd-oom colord whoopsi geoclue -y
+sudo apt-get install mc git htop make rsync telnet dialog whiptail rtkit colord -y
 sleep 2
 
 sudo apt-get install -y ubuntu-gnome-desktop gnome-software gnome-tweaks
@@ -96,29 +96,15 @@ sudo usermod -aG docker wren
 sudo usermod -aG sudo wren
 echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 
-# VSCode
-sudo apt-get install software-properties-common apt-transport-https wget -y
-wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-sudo add-apt-repository -y "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-sudo apt-get install -y code
-sleep 2
-
-# JetBrains Toolbox Setup
-wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.3.2.31487.tar.gz
-sudo tar -xzf jetbrains-toolbox-2.3.2.31487.tar.gz -C /opt
-sudo bash -c '/opt/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox'
-sleep 2
-
 sudo snap install phpstorm --classic
 sleep 2
 
 sudo snap install postman
 sudo snap install opera
-sudo snap install telegram
 sudo snap install gimp
 sudo snap install smplayer
+sudo snap install code
 sudo snap install vlc
-sudo snap install ktorrent
 sleep 2
 
 # Allow ingress
