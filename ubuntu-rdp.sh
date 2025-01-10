@@ -103,9 +103,9 @@ sudo snap install postman
 sudo snap install opera
 sudo snap install gimp
 sudo snap install smplayer
-sudo snap install code
+sudo snap install code --classic
 sudo snap install vlc
 sleep 2
 
 # Allow ingress
-sudo iptables -F
+# sudo iptables -F
