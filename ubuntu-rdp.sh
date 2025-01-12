@@ -24,7 +24,7 @@ sudo sysctl --system
 sleep 2
 
 # Modify xrdp settings
-sudo sed -i 's/^port=3389/port=3388/' /etc/xrdp/xrdp.ini
+sudo sed -i 's/^port=3389/port=3389/' /etc/xrdp/xrdp.ini
 sudo sed -i 's/^#tcp_send_buffer_bytes=32768/tcp_send_buffer_bytes=8388608/' /etc/xrdp/xrdp.ini
 sudo sed -i '1 a session required pam_env.so readenv=1 user_readenv=0' /etc/pam.d/xrdp-sesman
 sudo sed -i '4 i\export XDG_CURRENT_DESKTOP=ubuntu:GNOME' /etc/xrdp/startwm.sh
@@ -72,28 +72,28 @@ sleep 2
 # Add users
 sudo useradd -m -s /bin/bash junior 
 echo 'junior:Adm1234#' | sudo chpasswd
-sudo usermod -aG docker junior
-sudo usermod -aG sudo junior
+#sudo usermod -aG docker junior
+#sudo usermod -aG sudo junior
 echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 sudo useradd -m -s /bin/bash senior 
 echo 'senior:Adm1234#' | sudo chpasswd
-sudo usermod -aG docker senior
-sudo usermod -aG sudo senior
+#sudo usermod -aG docker senior
+#sudo usermod -aG sudo senior
 echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 sudo useradd -m -s /bin/bash test 
 echo 'test:Adm1234#' | sudo chpasswd
-sudo usermod -aG docker test
-sudo usermod -aG sudo test
+#sudo usermod -aG docker test
+#sudo usermod -aG sudo test
 echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 sudo useradd -m -s /bin/bash titan 
 echo 'titan:Adm1234#' | sudo chpasswd
-sudo usermod -aG docker titan
-sudo usermod -aG sudo titan
+#sudo usermod -aG docker titan
+#sudo usermod -aG sudo titan
 echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 sudo useradd -m -s /bin/bash wren 
 echo 'wren:Adm1234#' | sudo chpasswd
-sudo usermod -aG docker wren
-sudo usermod -aG sudo wren
+#sudo usermod -aG docker wren
+#sudo usermod -aG sudo wren
 echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 
 sudo snap install phpstorm --classic
