@@ -74,26 +74,31 @@ sudo useradd -m -s /bin/bash junior
 echo 'junior:Adm1234#' | sudo chpasswd
 #sudo usermod -aG docker junior
 #sudo usermod -aG sudo junior
+sudo su junior
 echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 sudo useradd -m -s /bin/bash senior 
 echo 'senior:Adm1234#' | sudo chpasswd
 #sudo usermod -aG docker senior
 #sudo usermod -aG sudo senior
+sudo su senior
 echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 sudo useradd -m -s /bin/bash test 
 echo 'test:Adm1234#' | sudo chpasswd
 #sudo usermod -aG docker test
 #sudo usermod -aG sudo test
+sudo su test
 echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 sudo useradd -m -s /bin/bash titan 
 echo 'titan:Adm1234#' | sudo chpasswd
 #sudo usermod -aG docker titan
 #sudo usermod -aG sudo titan
+sudo su titan
 echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 sudo useradd -m -s /bin/bash wren 
 echo 'wren:Adm1234#' | sudo chpasswd
 #sudo usermod -aG docker wren
 #sudo usermod -aG sudo wren
+sudo su wren
 echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
 
 sudo snap install phpstorm --classic
