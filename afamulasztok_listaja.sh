@@ -7,7 +7,7 @@ export JAVA_OPTS="-Dpdfbox.fontcache=/home/test/pdfbox_cache"
 mkdir -p /home/test/pdfbox_cache
 
 # Extract data from PDF using Tabula
-tabula --outfile Afamulasztok_listaja.csv --lattice --pages Afamulasztok_listaja.pdf
+tabula --outfile Afamulasztok_listaja.csv --lattice --pages all Afamulasztok_listaja.pdf
 
 # Remove the first two lines and lines containing specific headers
 awk 'NR > 2 && $0 !~ /Adószám Adózó neve \(elnevezése\) Lakcím Székhely Telephely Illetékesség kódja/' Afamulasztok_listaja.csv > temp.csv
