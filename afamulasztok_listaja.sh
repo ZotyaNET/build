@@ -15,3 +15,5 @@ mv tmp4.csv afamulasztok_listaja.csv
 rm tmp3.csv
 rm tmp2.csv
 rm tmp1.csv
+
+rm Afamulasztok_listaja.pdf
