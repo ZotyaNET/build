@@ -1,19 +1,17 @@
 #!/bin/bash
 
-# Extract data from PDF using Tabula
-tabula --outfile tmp1.csv --lattice --pages 1-10 Afamulasztok_listaja.pdf
+# Set the pdfbox.fontcache property to a writable directory
+export JAVA_OPTS="-Dpdfbox.fontcache=/home/test/pdfbox_cache"
 
-# Fix the line breaks
-tr -d '\r' < tmp1.csv > tmp2.csv
+# Create the font cache directory if it doesn't exist
+mkdir -p /home/test/pdfbox_cache
+
+# Extract data from PDF using Tabula
+tabula --outfile Afamulasztok_listaja.csv --lattice --pages Afamulasztok_listaja.pdf
 
 # Remove the first two lines and lines containing specific headers
-awk 'NR > 2 && $0 !~ /Adószám Adózó neve \(elnevezése\) Lakcím Székhely Telephely Illetékesség kódja/' tmp2.csv > tmp3.csv
-awk 'NR > 2 && $0 !~ /Adószám,Adózó neve \(elnevezése\),Lakcím,Székhely,Telephely,Illetékesség kódja/' tmp3.csv > tmp4.csv
+awk 'NR > 2 && $0 !~ /Adószám Adózó neve \(elnevezése\) Lakcím Székhely Telephely Illetékesség kódja/' Afamulasztok_listaja.csv > temp.csv
+awk 'NR > 2 && $0 !~ /Adószám,Adózó neve \(elnevezése\),Lakcím,Székhely,Telephely,Illetékesség kódja/' temp.csv > Afamulasztok_listaja.csv
 
-# Remove tmp files
-mv tmp4.csv afamulasztok_listaja.csv
-rm tmp3.csv
-rm tmp2.csv
-rm tmp1.csv
-
-rm Afamulasztok_listaja.pdf
+# Remove the temporary file
+rm temp.csv
