@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Set the pdfbox.fontcache property to a writable directory
-export JAVA_OPTS="-Dpdfbox.fontcache=/home/test/pdfbox_cache"
-
-# Create the font cache directory if it doesn't exist
-mkdir -p /home/test/pdfbox_cache
-
 # Extract data from PDF using Tabula
 tabula --outfile Afamulasztok_listaja.csv --lattice --pages all Afamulasztok_listaja.pdf
 
