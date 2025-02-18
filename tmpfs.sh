@@ -31,7 +31,7 @@ elif [ "$action" == "backup" ]; then
         echo "Error: Target folder is not a tmpfs mount."
         exit 1
     fi
-    rsync -avu --delete --progress "$target_folder"/ "$source_folder"/
+    rsync -avu --exclude vendor --exclude node_modules --delete --progress "$target_folder"/ "$source_folder"/
     echo "Backup completed successfully."
 else
     echo "Error: Invalid action. Use 'restore' or 'backup'."
