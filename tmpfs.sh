@@ -21,7 +21,6 @@ if [ "$action" == "restore" ]; then
         echo "Error: Target folder exists and is not empty."
         exit 1
     fi
-    sudo rm -R "$target_folder"
     mkdir -p "$target_folder"
     sudo mount -t tmpfs -o size=${size}G tmpfs "$target_folder"
     rsync -avu --progress "$source_folder"/ "$target_folder"/
