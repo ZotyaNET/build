@@ -21,6 +21,7 @@ if [ "$action" == "restore" ]; then
         echo "Error: Target folder exists and is not empty."
         exit 1
     fi
+    sudo rm -R "$target_folder"
     mkdir -p "$target_folder"
     sudo mount -t tmpfs -o size=${size}G tmpfs "$target_folder"
     rsync -avu --progress "$source_folder"/ "$target_folder"/
@@ -31,7 +32,7 @@ elif [ "$action" == "backup" ]; then
         echo "Error: Target folder is not a tmpfs mount."
         exit 1
     fi
-    rsync -avu --progress "$target_folder"/ "$source_folder"/
+    rsync -avu --delete --progress "$target_folder"/ "$source_folder"/
     echo "Backup completed successfully."
 else
     echo "Error: Invalid action. Use 'restore' or 'backup'."
