@@ -23,7 +23,7 @@ if [ "$action" == "restore" ]; then
     fi
     mkdir -p "$target_folder"
     sudo mount -t tmpfs -o size=${size}G tmpfs "$target_folder"
-    rsync -avu --progress "$source_folder"/ "$target_folder"/
+    rsync -avu --exclude vendor --exclude node_modules --progress "$source_folder"/ "$target_folder"/
     echo "Restore completed successfully."
 
 elif [ "$action" == "backup" ]; then
