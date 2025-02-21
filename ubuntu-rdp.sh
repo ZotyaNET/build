@@ -69,46 +69,36 @@ sudo usermod -aG docker $USER
 echo 'root:Adm1234#' | sudo chpasswd
 sleep 2
 
-# Add users
 sudo useradd -m -s /bin/bash junior 
 echo 'junior:Adm1234#' | sudo chpasswd
-#sudo usermod -aG docker junior
-#sudo usermod -aG sudo junior
-sudo su junior
-echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
+sudo usermod -aG docker junior
+sudo usermod -aG sudo junior
+sudo su junior bash -c ‘echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc’
 sudo useradd -m -s /bin/bash senior 
 echo 'senior:Adm1234#' | sudo chpasswd
-#sudo usermod -aG docker senior
-#sudo usermod -aG sudo senior
-sudo su senior
-echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
+sudo usermod -aG docker senior
+sudo usermod -aG sudo senior
+sudo su senior bash -c echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc’
 sudo useradd -m -s /bin/bash test 
 echo 'test:Adm1234#' | sudo chpasswd
-#sudo usermod -aG docker test
-#sudo usermod -aG sudo test
-sudo su test
-echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
+sudo usermod -aG docker test
+sudo usermod -aG sudo test
+sudo su test bash -c echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc’
 sudo useradd -m -s /bin/bash titan 
 echo 'titan:Adm1234#' | sudo chpasswd
-#sudo usermod -aG docker titan
-#sudo usermod -aG sudo titan
-sudo su titan
-echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
+sudo usermod -aG docker titan
+sudo usermod -aG sudo titan
+sudo su titan bash -c echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc’
 sudo useradd -m -s /bin/bash wren 
 echo 'wren:Adm1234#' | sudo chpasswd
-#sudo usermod -aG docker wren
-#sudo usermod -aG sudo wren
-sudo su wren
-echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc
+sudo usermod -aG docker wren
+sudo usermod -aG sudo wren
+sudo su wren bash -c echo "export XAUTHORITY=${HOME}/.Xauthority" | tee ~/.xsessionrc && echo "export GNOME_SHELL_SESSION_MODE=ubuntu" | tee -a ~/.xsessionrc && echo "export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg" | tee -a ~/.xsessionrc’
+sleep 2
 
 sudo snap install phpstorm --classic
 sudo snap install postman
 sudo snap install opera
 sudo snap install gimp
-sudo snap install smplayer
-sudo snap install code --classic
 sudo snap install vlc
 sleep 2
-
-# Allow ingress
-# sudo iptables -F
