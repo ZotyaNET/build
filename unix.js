@@ -121,6 +121,8 @@ function createAndDownloadExcel(products) {
     console.log('Download triggered!');
 }
 
+download(items);
+
 // const items = [
 // "TEXTAR 92326003",
 // "TEXTAR 92326103",
@@ -162,5 +164,3 @@ function createAndDownloadExcel(products) {
 // "TEXTAR 98046501",
 // "TEXTAR 98048700"
 // ];
-//
-// download(items);
