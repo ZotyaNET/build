@@ -1,9 +1,43 @@
-function download(items) {
-    // Load the XLSX library
+const fileInput = document.createElement('input');
+fileInput.type = 'file';
+fileInput.accept = '.xlsx';
+fileInput.style.display = 'none';
+document.body.appendChild(fileInput);
+
+fileInput.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    if (!file) {
+        console.error('No file selected.');
+        return;
+    }
+
     loadXLSXLibrary(() => {
-        runProductScript(items);
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const data = new Uint8Array(event.target.result);
+            const workbook = XLSX.read(data, { type: 'array' });
+            const firstSheetName = workbook.SheetNames[0];
+            const worksheet = workbook.Sheets[firstSheetName];
+            const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+            // Extract the first column as items
+            const items = jsonData.map(row => row[0]).filter(Boolean); // Remove empty rows
+            console.log('Items:', items);
+
+            // Call the download function with the parsed items
+            download(items);
+        };
+
+        reader.onerror = function() {
+            console.error('Failed to read the file.');
+        };
+
+        reader.readAsArrayBuffer(file); // Read the file as an ArrayBuffer
     });
-}
+});
+
+// Trigger the file input dialog
+fileInput.click();
 
 function loadXLSXLibrary(callback) {
     if (typeof XLSX === 'undefined') {
@@ -27,9 +61,12 @@ function loadXLSXLibrary(callback) {
     }
 }
 
-// Your main script to fetch, parse and download as Excel
-async function runProductScript(items) {
+function download(items) {
+    // console.log('Processing items:', items);
+    runProductScript(items);
+}
 
+async function runProductScript(items) {
     let allProducts = [];
 
     for (const item of items) {
@@ -47,7 +84,6 @@ async function runProductScript(items) {
         }
     }
 
-    // After all items are processed, create and download the Excel file
     createAndDownloadExcel(allProducts);
 }
 
@@ -120,47 +156,3 @@ function createAndDownloadExcel(products) {
     link.click();
     console.log('Download triggered!');
 }
-
-// download(items);
-
-// const items = [
-// "TEXTAR 92326003",
-// "TEXTAR 92326103",
-// "TEXTAR 92326305",
-// "TEXTAR 92326905",
-// "TEXTAR 92337703",
-// "TEXTAR 92337905",
-// "TEXTAR 92341103",
-// "TEXTAR 92346705",
-// "TEXTAR 93012400",
-// "TEXTAR 93123403",
-// "TEXTAR 93123503",
-// "TEXTAR 93143203",
-// "TEXTAR 93143303",
-// "TEXTAR 93240600",
-// "TEXTAR 93260603",
-// "TEXTAR 94014800",
-// "TEXTAR 94024300",
-// "TEXTAR 94031500",
-// "TEXTAR 94046500",
-// "TEXTAR 95002100",
-// "TEXTAR 95002200",
-// "TEXTAR 95002300",
-// "TEXTAR 95002400",
-// "TEXTAR 95006100",
-// "TEXTAR 95006200",
-// "TEXTAR 95006600",
-// "TEXTAR 96000200",
-// "TEXTAR 97011800",
-// "TEXTAR 98023300",
-// "TEXTAR 98024701",
-// "TEXTAR 98040100",
-// "TEXTAR 98043100",
-// "TEXTAR 98044100",
-// "TEXTAR 98044300",
-// "TEXTAR 98044500",
-// "TEXTAR 98045400",
-// "TEXTAR 98046200",
-// "TEXTAR 98046501",
-// "TEXTAR 98048700"
-// ];
